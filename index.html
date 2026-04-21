@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-VOTING PORTAL | TN Elections 2026</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- AUTHENTICATION BOX -->
+    <div class="container" id="auth-box">
+        <h1>Voter Authentication</h1>
+        <div class="form-group">
+            <label>Select Portal</label>
+            <select id="userType" onchange="toggleRegFields()">
+                <option value="voter">Voter Login</option>
+                <option value="candidate">Candidate Login</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>User ID / Name</label>
+            <input type="text" id="userid" placeholder="Enter ID">
+        </div>
+        <div class="form-group">
+            <label>Security Password</label>
+            <input type="password" id="password" placeholder="••••••••">
+        </div>
+
+        <div id="reg-area" class="hidden">
+            <div class="form-group">
+                <label>Voter ID (EPIC Number)</label>
+                <input type="text" id="voterid" placeholder="ABC1234567">
+            </div>
+        </div>
+
+        <!-- Inside your <div id="dash-box"> -->
+<div id="results-area" class="hidden">
+    <h3>Live Election Results</h3>
+    <div id="results-container"></div>
+    <button class="btn btn-outline" onclick="hideResults()">Back to Ballot</button>
+</div>
+
+<!-- Add this button inside dash-box, below your ballot-list -->
+<button class="btn btn-primary" id="view-results-btn" onclick="showResults()" style="margin-top: 20px;">
+    View Live Results Count
+</button>
+
+        <button class="btn btn-primary" id="action-btn" onclick="handleAuth()">Login to Portal</button>
+        <p class="toggle-link">
+            <span id="toggle-msg">First time using the portal?</span> 
+            <a href="#" onclick="toggleForm()" id="toggle-link-text">Register Now</a>
+        </p>
+    </div>
+
+    <!-- DASHBOARD BOX -->
+    <div class="container hidden" id="dash-box">
+        <h1>Ballot Dashboard</h1>
+        <div id="user-info" class="user-status-card"></div>
+        <div id="ballot-list"></div>
+        <button class="btn btn-logout" onclick="logout()">Secure Logout</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
